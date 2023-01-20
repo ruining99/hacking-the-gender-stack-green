@@ -37,3 +37,7 @@ def get_rgroup_labels(core_smi: str) -> List[str]:
         if at.HasProp(ATOM_PROP_ATOM_LABEL):
             core_rlabels.append(at.GetProp(ATOM_PROP_ATOM_LABEL))
     return sorted(core_rlabels)
+
+
+def valid(smiles):
+    return True
