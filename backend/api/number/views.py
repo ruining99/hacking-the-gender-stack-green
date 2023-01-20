@@ -4,7 +4,7 @@ from api.number.serializers import NumberRequestSerializer
 from drf_spectacular.utils import OpenApiExample
 from drf_spectacular.utils import extend_schema
 from api.number.examples import EXAMPLE_REQUEST
-from science.rdkit_endpoints import valid
+from science.rdkit_endpoints import get_props
 
 
 class Number(APIView):
@@ -19,7 +19,6 @@ class Number(APIView):
         serializer = NumberRequestSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         smiles = serializer.validated_data["smiles"]
-        num = valid(smiles)
+        num = get_props(smiles)
         print("science returned,", num)
-        print("hi")
         return Response(num)
