@@ -1,14 +1,14 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from api.valid.serializers import ValidRequestSerializer
+from api.number.serializers import NumberRequestSerializer
 from drf_spectacular.utils import OpenApiExample
 from drf_spectacular.utils import extend_schema
-from api.valid.examples import EXAMPLE_REQUEST
-from science.rdkit_endpoints import valid
+from api.number.examples import EXAMPLE_REQUEST
+from science.rdkit_endpoints import get_props
 
 
-class Valid(APIView):
-    serializer_class = ValidRequestSerializer
+class Number(APIView):
+    serializer_class = NumberRequestSerializer
 
     @extend_schema(
         examples=[
@@ -16,11 +16,9 @@ class Valid(APIView):
         ]
     )
     def post(self, request):
-        serializer = ValidRequestSerializer(data=request.data)
+        serializer = NumberRequestSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         smiles = serializer.validated_data["smiles"]
-
-        # valid function returns a boolean
-        isvalid = valid(smiles)
-        print("science returned,", isvalid)
-        return Response(isvalid)
+        num = get_props(smiles)
+        print("science returned,", num)
+        return Response(num)
