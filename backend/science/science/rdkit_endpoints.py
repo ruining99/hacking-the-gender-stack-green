@@ -109,4 +109,4 @@ def lipinski_test_result(smile):
     if violations > 1:
         return "this molecule does not pass the lipinski test"
     else:
-        return "this molecular passes the lipinski test"
+        return "this molecule passes the lipinski test"
