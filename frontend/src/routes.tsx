@@ -7,5 +7,6 @@ import { withMainLayout } from './layout/main/Main';
 export default createRoutesFromElements(
   <Route path="/" element={withMainLayout(<Outlet />)} errorElement={withMainLayout(<ErrorPage />)}>
     <Route index element={<Home />} />
+    <Route path="grammarly" element={<div />} />
   </Route>
 );

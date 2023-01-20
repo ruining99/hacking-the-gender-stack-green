@@ -19,7 +19,8 @@ class Valid(APIView):
         serializer = ValidRequestSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         smiles = serializer.validated_data["smiles"]
+
+        # valid function returns a boolean
         isvalid = valid(smiles)
         print("science returned,", isvalid)
-        print("hi")
         return Response(isvalid)
