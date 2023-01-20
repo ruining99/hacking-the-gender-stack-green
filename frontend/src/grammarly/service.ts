@@ -14,6 +14,19 @@ async function checkValidity(smiles: string) {
   return response.json();
 }
 
+async function checkProps(smiles: string) {
+  const response = await fetch('api/number/', {
+    method: 'POST',
+    body: JSON.stringify({ smiles }),
+  });
+
+  if (!response.ok) {
+    throw new ApiError(response.clone());
+  }
+
+  return response.json();
+}
+
 async function getImage(smiles: string) {
   const response = await fetch('api/image/', {
     method: 'GET',
