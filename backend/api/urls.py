@@ -17,6 +17,7 @@ urlpatterns = [
     path(prefix("core/"), include("api.core.urls")),
     path(prefix("valid/"), include("api.valid.urls")),
     path(prefix("number/"), include("api.number.urls")),
+    path(prefix("lipinski/"), include("api.lipinski.urls")),
     # Dynamic API documentation endpoints
     path(prefix("schema/yaml/"), SpectacularAPIView.as_view(), name="schema"),
     path(
