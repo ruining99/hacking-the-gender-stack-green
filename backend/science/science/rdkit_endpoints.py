@@ -53,10 +53,10 @@ def valid(mol_smi: str):
         return False
 
 
-def get_props(str):
-    mol = Chem.MolFromSmiles(str)
+def get_props(s):
+    mol = Chem.MolFromSmiles(s)
     props = QED.properties(mol)
-    #     props_str = str(props)
+    props_str = str(props)
     split_props = props_str.split()
 
     # Hydrogen bond donors (No more than 5 hydrogen bond donors)
