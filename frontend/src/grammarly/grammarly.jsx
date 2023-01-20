@@ -1,7 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { List } from 'react-virtualized';
+
+import { checkValidity, getImage } from './service';
 import './grammarly.css';
+
+function submit(smiles) {
+  checkValidity(smiles).then(function (result) {
+    console.log(result);
+  });
+}
+window.submit = submit;
 
 function Grammarly() {
   return (

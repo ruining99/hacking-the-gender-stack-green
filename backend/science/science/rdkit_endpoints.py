@@ -48,7 +48,7 @@ def valid(smiles):
 
 def valid(mol_smi: str):
     mol = Chem.MolFromSmiles(mol_smi)
-    if type(mol) == rdkit.Chem.rdchem.Mol:
+    if type(mol) == Chem.rdchem.Mol:
         return True
     else:
         return False
