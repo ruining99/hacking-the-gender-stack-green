@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { List } from 'react-virtualized';
 
-import { checkValidity, getImage } from './service';
+import { checkLipinski, checkProps, checkValidity, getImage } from './service';
+
 import './grammarly.css';
 
 function submit(smiles) {
@@ -11,6 +12,27 @@ function submit(smiles) {
   });
 }
 window.submit = submit;
+
+function props(smiles) {
+  checkProps(smiles).then(function (result) {
+    console.log(result);
+  });
+}
+window.props = props;
+
+function lipinski(smiles) {
+  checkLipinski(smiles).then(function (result) {
+    console.log(result);
+  });
+}
+window.lipinski = lipinski;
+
+function gImage(smiles) {
+  getImage(smiles).then(function (result) {
+    console.log(result);
+  });
+}
+window.gImage = gImage;
 
 function Grammarly() {
   return (

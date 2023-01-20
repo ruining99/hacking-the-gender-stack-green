@@ -27,6 +27,19 @@ async function checkProps(smiles: string) {
   return response.json();
 }
 
+async function checkLipinski(smiles: string) {
+  const response = await fetch('api/lipinski/', {
+    method: 'POST',
+    body: JSON.stringify({ smiles }),
+  });
+
+  if (!response.ok) {
+    throw new ApiError(response.clone());
+  }
+
+  return response.json();
+}
+
 async function getImage(smiles: string) {
   const response = await fetch('api/image/', {
     method: 'GET',
@@ -44,11 +57,18 @@ declare global {
   interface Window {
     checkValidity: any;
     getImage: any;
+    checkProps: any;
+    checkLipinski: any;
     submit: any;
+    props: any;
+    lipinski: any;
   }
 }
 window.checkValidity = checkValidity;
-export { checkValidity };
+window.checkLipinski = checkLipinski;
+window.checkProps = checkProps;
+window.getImage = getImage;
+export { checkLipinski, checkValidity, checkProps, getImage };
 
 // async function registerNewRGroup(smiles: string) {
 //   const response = await fetch(rgroupApiUrls.create, {

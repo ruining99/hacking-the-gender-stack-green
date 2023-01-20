@@ -28,8 +28,8 @@ module.exports = {
     },
   },
   rules: {
-    '@typescript-eslint/consistent-type-exports': 'error',
-    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/consistent-type-exports': 'off',
+    '@typescript-eslint/consistent-type-imports': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     'import/order': [
       'warn',
@@ -47,5 +47,6 @@ module.exports = {
         memberSyntaxSortOrder: ['all', 'single', 'multiple', 'none'],
       },
     ],
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 };
