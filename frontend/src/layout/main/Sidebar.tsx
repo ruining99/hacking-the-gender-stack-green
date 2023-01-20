@@ -57,7 +57,7 @@ function Sidebar(props: PaperProps) {
 
         <NavIconButton icon={PieChart} title={t.sidebar.pieTitle} />
         <NavIconButton icon={AccountTree} title={t.sidebar.treeTitle} />
-        <NavIconButton icon={Forum} title={t.sidebar.feedbackTitle} />
+        <NavIconButton icon={Forum} title="Grammarly4SMILES" path="/grammarly" />
       </div>
 
       <div className={cx('button-stack', 'user-pref-buttons')}>
