@@ -1,6 +1,7 @@
 from rdkit import Chem
 from rdkit.Chem.Draw import rdMolDraw2D
 from typing import List
+from rdkit.Chem import QED
 
 ATOM_PROP_ATOM_LABEL = "atomLabel"
 
