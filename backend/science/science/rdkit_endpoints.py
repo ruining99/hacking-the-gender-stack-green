@@ -39,5 +39,12 @@ def get_rgroup_labels(core_smi: str) -> List[str]:
     return sorted(core_rlabels)
 
 
+"""
 def valid(smiles):
     return True
+"""
+
+
+def valid(mol_smi: str):
+    mol = Chem.MolFromSmiles(mol_smi)
+    return mol
