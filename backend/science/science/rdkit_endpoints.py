@@ -80,3 +80,32 @@ def get_props(s):
     ALOGP = ALOGP1[1]
 
     return f"This molecule has {HBD[:-1]} hydrogen bond donors, {HBA[:-1]} hydrogen bond acceptors. The molecular mass is {MW[:-1]} and the ALOGP is {ALOGP[:-1]}"
+
+
+def lipinski_violations(smile):
+    violations = 0
+
+    output = get_props(smile)
+    output_split = output.split()
+    HBD = int(output_split[3])
+    HBA = int(output_split[7])
+    MW = int(float(output_split[15]))
+    ALOGP = int(float(output_split[20]))
+
+    if HBD > 5:
+        violations += 1
+    elif HBA > 10:
+        violations += 1
+    elif MW > 500:
+        violations += 1
+    elif ALOGP > 5:
+        violations += 1
+    return violations
+
+
+def lipinski_test_result(smile):
+    violations = lipinski_violations(smile)
+    if violations > 1:
+        return "this molecule does not pass the lipinski test"
+    else:
+        return "this molecular passes the lipinski test"
