@@ -95,11 +95,11 @@ def lipinski_violations(smile):
 
     if HBD > 5:
         violations += 1
-    elif HBA > 10:
+    if HBA > 10:
         violations += 1
-    elif MW > 500:
+    if MW > 500:
         violations += 1
-    elif ALOGP > 5:
+    if ALOGP > 5:
         violations += 1
     return violations
 
